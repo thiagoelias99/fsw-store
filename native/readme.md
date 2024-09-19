@@ -53,7 +53,7 @@ A aplicação foi proposta pela escola [FullstackClub](https://lp.fullstackclub.
 #### Configurações
 - [X] - Setup Expo
 - [ ] - Setup ícones/ splashscreen
-- [ ] - Setup Tailwind
+- [X] - Setup Tailwind
 
 #### Home Activity
 - [ ] - Interface visual
