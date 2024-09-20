@@ -61,10 +61,12 @@ A aplicação foi proposta pela escola [FullstackClub](https://lp.fullstackclub.
 #### Home Activity
 - [X] - Interface visual
 - [ ] - Integração de dados
+- [ ] = Busca
 
 #### Product Details Activity
 - [X] - Interface visual
 - [ ] - Integração de dados
+- [ ] - Funcionalidades
 
 #### Categories Activity
 - [X] - Interface visual
@@ -79,5 +81,14 @@ A aplicação foi proposta pela escola [FullstackClub](https://lp.fullstackclub.
 - [ ] - Integração de dados
 
 #### Carrinho
+- [X] - Interface visual
+- [ ] - Integração de dados
+- [ ] - Funcionalidades
+
+#### Pedidos
+- [ ] - Interface visual
+- [ ] - Integração de dados
+
+#### Login
 - [ ] - Interface visual
 - [ ] - Integração de dados
