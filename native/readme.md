@@ -54,7 +54,7 @@ A aplicação foi proposta pela escola [FullstackClub](https://lp.fullstackclub.
 - [X] - Setup Expo
 - [ ] - Setup ícones/ splashscreen
 - [X] - Setup Tailwind
-- [ ] - Navigation
+- [X] - Navigation
   - [X] - Store tabs
   - [X] - Store drawer 
 
@@ -63,21 +63,21 @@ A aplicação foi proposta pela escola [FullstackClub](https://lp.fullstackclub.
 - [ ] - Integração de dados
 
 #### Product Details Activity
-- [X] - Interface visual (Products section)
+- [X] - Interface visual
 - [ ] - Integração de dados
 
 #### Categories Activity
-- [ ] - Interface visual (Products section)
+- [X] - Interface visual
 - [ ] - Integração de dados
 
 #### Categories/Products Activity
-- [ ] - Interface visual (Products section)
+- [X] - Interface visual
 - [ ] - Integração de dados
 
-#### Hamburger Menu
-- [ ] - Interface visual (Products section)
+#### Main Menu
+- [X] - Interface visual
 - [ ] - Integração de dados
 
 #### Carrinho
-- [ ] - Interface visual (Products section)
+- [ ] - Interface visual
 - [ ] - Integração de dados

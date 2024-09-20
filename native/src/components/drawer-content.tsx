@@ -14,7 +14,6 @@ export default function DrawerContent(props: DrawerContentComponentProps) {
     { label: 'Pedidos', href: '/orders' },
     { label: 'Configurações', href: '/settings' },
   ]
-  console.log(pathname)
   return (
     <View className='flex-1 overflow-hidden'>
 

@@ -13,6 +13,7 @@ export default function TabLayout() {
           backgroundColor: colors.card.DEFAULT,
           borderTopWidth: 0,
           minHeight: 74,
+          borderColor: colors.card.DEFAULT,
         },
         tabBarShowLabel: false,
         tabBarItemStyle: {
