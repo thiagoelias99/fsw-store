@@ -55,6 +55,8 @@ A aplicação foi proposta pela escola [FullstackClub](https://lp.fullstackclub.
 - [ ] - Setup ícones/ splashscreen
 - [X] - Setup Tailwind
 - [ ] - Navigation
+  - [X] - Store tabs
+  - [X] - Store drawer 
 
 #### Home Activity
 - [X] - Interface visual
@@ -68,7 +70,7 @@ A aplicação foi proposta pela escola [FullstackClub](https://lp.fullstackclub.
 - [ ] - Interface visual (Products section)
 - [ ] - Integração de dados
 
-#### Categories;Products Activity
+#### Categories/Products Activity
 - [ ] - Interface visual (Products section)
 - [ ] - Integração de dados
 
