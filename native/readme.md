@@ -56,5 +56,25 @@ A aplicação foi proposta pela escola [FullstackClub](https://lp.fullstackclub.
 - [X] - Setup Tailwind
 
 #### Home Activity
-- [ ] - Interface visual
+- [X] - Interface visual
+- [ ] - Integração de dados
+
+#### Product Details Activity
+- [X] - Interface visual (Products section)
+- [ ] - Integração de dados
+
+#### Categories Activity
+- [ ] - Interface visual (Products section)
+- [ ] - Integração de dados
+
+#### Categories;Products Activity
+- [ ] - Interface visual (Products section)
+- [ ] - Integração de dados
+
+#### Hamburger Menu
+- [ ] - Interface visual (Products section)
+- [ ] - Integração de dados
+
+#### Carrinho
+- [ ] - Interface visual (Products section)
 - [ ] - Integração de dados

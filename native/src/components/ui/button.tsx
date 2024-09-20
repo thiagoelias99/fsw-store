@@ -1,5 +1,5 @@
 import { cn } from '@/lib/utils';
-import { TouchableOpacity, View } from 'react-native';
+import { Pressable, TouchableOpacity, View } from 'react-native';
 import { cva, type VariantProps } from 'class-variance-authority'
 import { Loader2Icon } from 'lucide-react-native';
 
@@ -41,19 +41,17 @@ interface ButtonProps
 
 function Button({ className, variant, size, asChild = false, isLoading, disabled, children, ...props }: ButtonProps) {
   return (
-    <TouchableOpacity activeOpacity={0.7} disabled={isLoading || disabled}>
+    <Pressable disabled={isLoading || disabled}
+      className={cn(buttonVariants({ variant, size, className }))}
+      {...props}
+    >
       <View
-        className={cn(buttonVariants({ variant, size, className }))}
-        {...props}
+        className='flex justify-center items-center gap-2'
       >
-        <View
-          className='flex justify-center items-center gap-2'
-        >
-          {children}
-          {isLoading && <Loader2Icon className='animate-spin' />}
-        </View>
+        {children}
+        {isLoading && <Loader2Icon className='animate-spin' />}
       </View>
-    </TouchableOpacity>
+    </Pressable>
   );
 }
 

@@ -12,6 +12,8 @@ const textVariants = cva(
         header1: 'text-2xl font-bold',
         header2: 'text-xl font-bold',
         header3: 'text-lg font-bold',
+        headerXl: 'text-3xl font-bold',
+        headerXxl: 'text-4xl font-bold',
       },
     },
     defaultVariants: {

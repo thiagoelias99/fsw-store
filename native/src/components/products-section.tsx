@@ -2,11 +2,18 @@ import React from 'react'
 import { FlatList, View } from 'react-native'
 import { Text } from '@/components/ui/text';
 import ProductCard from '@/components/product-card';
+import { ClassNameValue } from 'tailwind-merge';
+import { cn } from '@/lib/utils';
 
-export default function ProductsSection() {
+interface Props {
+  title: string
+  className?: ClassNameValue
+}
+
+export default function ProductsSection({ title, className }: Props) {
   return (
-    <>
-      <Text variant='header1' className='uppercase px-6'>Ofertas</Text>
+    <View className={cn('w-full gap-2', className)}>
+      <Text variant='header1' className='uppercase px-6'>{title}</Text>
       <FlatList
         data={[1, 2, 3, 4]}
         keyExtractor={(item) => item.toString()}
@@ -15,6 +22,6 @@ export default function ProductsSection() {
         horizontal
       >
       </FlatList>
-    </>
+    </View>
   )
 }

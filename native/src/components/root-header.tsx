@@ -16,7 +16,7 @@ export default function RootHeader() {
           <ShoppingCartIcon color={colors.foreground} />
         </Button>
       </View>
-      <View className='w-full bg-muted h-0.5 mt-6'></View>
+      <View className='w-full bg-card h-0.5 mt-6'></View>
     </>
   )
 }
