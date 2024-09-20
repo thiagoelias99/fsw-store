@@ -7,7 +7,7 @@ import { colors } from '@/styles/colors'
 export default function RootHeader() {
   return (
     <>
-      <View className='flex-row justify-between items-center px-6'>
+      <View className='w-full flex-row justify-between items-center px-6'>
         <Button variant='outline' size='icon'>
           <MenuIcon color={colors.foreground} />
         </Button>

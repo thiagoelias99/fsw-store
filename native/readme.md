@@ -54,6 +54,7 @@ A aplicação foi proposta pela escola [FullstackClub](https://lp.fullstackclub.
 - [X] - Setup Expo
 - [ ] - Setup ícones/ splashscreen
 - [X] - Setup Tailwind
+- [ ] - Navigation
 
 #### Home Activity
 - [X] - Interface visual
