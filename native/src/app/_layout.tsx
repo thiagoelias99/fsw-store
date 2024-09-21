@@ -4,6 +4,7 @@ import { Slot } from 'expo-router';
 import { StatusBar, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import RootHeader from '@/components/root-header';
 
 export default function Layout() {
   return (
@@ -15,6 +16,7 @@ export default function Layout() {
           translucent
         />
         <SafeAreaView style={{ flex: 1 }}>
+          <RootHeader />
           <Slot />
         </SafeAreaView>
       </View>

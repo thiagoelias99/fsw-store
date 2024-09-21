@@ -30,7 +30,7 @@ export default function TabLayout() {
           tabBarIcon: ({ color, size }) => (
             <View className='justify-center items-center'>
               <StoreIcon color={color} size={size} />
-              <RNText style={{ color: color }} className='text-sm'>Início</RNText>
+              <RNText style={{ color: color }} className='text-sm'>Loja</RNText>
             </View>
           )
         }}
