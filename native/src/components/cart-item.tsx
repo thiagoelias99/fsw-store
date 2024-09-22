@@ -1,15 +1,23 @@
-import { StyleSheet, Image, View, Text } from 'react-native'
+import { StyleSheet, Image, View, Text, ImageSourcePropType } from 'react-native'
 import React from 'react'
 import { colors } from '@/styles/colors'
 import { Button } from './ui/button'
 import { ChevronLeftIcon, ChevronRightIcon, Trash2Icon } from 'lucide-react-native'
+import { OrderProduct as OrderProductType } from '@/types/type'
+import { ClassNameValue } from 'tailwind-merge'
+import { cn, formatCurrency } from '@/lib/utils'
 
-export default function CartItem() {
+interface OrderProductProps {
+  orderProduct: OrderProductType
+  className?: ClassNameValue
+}
+
+export default function OrderProduct({orderProduct, className} : OrderProductProps) {
   return (
-    <View className='w-full flex-row justify-between items-center'>
+    <View className={cn('w-full flex-row justify-between items-center', className)}>
       <View className='flex-row gap-4'>
         <Image
-          source={require('@/assets/images/mouse.png')}
+          source={orderProduct.product.images[0] as ImageSourcePropType}
           style={{
             width: 80,
             height: 80,
@@ -19,16 +27,18 @@ export default function CartItem() {
           resizeMode='contain'
         />
         <View>
-          <Text className='text-base text-foreground'>Logitech MX Master 3s</Text>
+          <Text className='text-base text-foreground'>{orderProduct.product.title}</Text>
           <View className='flex-row justify-start items-baseline gap-2'>
-            <Text className='text-xl text-foreground font-bold'>R$ 699,00</Text>
-            <Text className='text-sm text-muted-foreground line-through'>R$ 799,99</Text>
+            <Text className='text-xl text-foreground font-bold'>{formatCurrency(orderProduct.product.sellPrice)}</Text>
+            {orderProduct.product.discount > 0 && (
+              <Text className='text-sm text-muted-foreground line-through'>{formatCurrency(orderProduct.product.originalPrice)}</Text>
+            )}
           </View>
           <View className="flex-row justify-start items-center">
             <Button variant="outline" size="icon">
               <ChevronLeftIcon color={colors.foreground} />
             </Button>
-            <Text className='px-4 text-foreground text-lg'>1</Text>
+            <Text className='px-4 text-foreground text-lg'>{orderProduct.quantity}</Text>
             <Button variant="outline" size="icon">
               <ChevronRightIcon color={colors.foreground} />
             </Button>
@@ -42,5 +52,3 @@ export default function CartItem() {
     </View>
   )
 }
-
-const styles = StyleSheet.create({})

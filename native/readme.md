@@ -86,7 +86,7 @@ A aplicação foi proposta pela escola [FullstackClub](https://lp.fullstackclub.
 - [ ] - Funcionalidades
 
 #### Pedidos
-- [ ] - Interface visual
+- [X] - Interface visual
 - [ ] - Integração de dados
 
 #### Login

@@ -12,6 +12,8 @@ interface Props {
 }
 
 export default function DiscountBadge({ value, className }: Props) {
+  if (value <= 0) return null
+
   return (
     <View className={cn('flex-row justify-start items-center gap-0.5 bg-primary px-2 py-0.5 rounded-full h-8', className)}>
       <ArrowDownIcon color={colors.foreground} size={16} />

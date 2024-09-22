@@ -5,14 +5,23 @@ import { ChevronsUpDownIcon } from 'lucide-react-native'
 import { colors } from '@/styles/colors'
 import Divider from './ui/divider'
 import OrderProductItem from './order-product-item'
+import { cn, formatCurrency } from '@/lib/utils'
+import { Order } from '@/types/type'
+import { OrderStatusEnumMapper } from '@/lib/enums'
+import dayjs from 'dayjs'
 
-export default function OrderItem() {
+interface OrderItemProps {
+  order: Order
+  className?: string
+}
+
+export default function OrderItem({ order, className }: OrderItemProps) {
   const [isExpanded, setIsExpanded] = React.useState(true)
 
   return (
-    <View className='border rounded-lg border-muted p-6'>
+    <View className={cn('border rounded-lg border-muted p-6', className)}>
       <View className='flex-row justify-between items-center'>
-        <Text className='text-muted-foreground'>Pedido: <Text className='text-xl text-foreground font-bold'>123456</Text><Text className={`${isExpanded ? "hidden" : ""}`}> em 21/09/2024</Text></Text>
+        <Text className='text-muted-foreground'>Pedido: <Text className='text-xl text-foreground font-bold'>{order.id}</Text><Text className={`${isExpanded ? "hidden" : ""}`}> em {dayjs(order.date).format("DD/MM/YYYY")}</Text></Text>
         <Button
           variant="ghost"
           size="icon"
@@ -25,23 +34,23 @@ export default function OrderItem() {
           <View className='flex-row justify-between items-start'>
             <View className='justify-start items-start'>
               <Text className='text-muted-foreground'>Status</Text>
-              <Text className='text-primary text-xl font-bold'>Pago</Text>
+              <Text className='text-primary text-xl font-bold'>{OrderStatusEnumMapper(order.status)}</Text>
             </View>
             <View className='justify-start items-end'>
               <Text className='text-muted-foreground'>Data</Text>
-              <Text className='text-primary text-xl font-bold'>21/09/2024</Text>
+              <Text className='text-primary text-xl font-bold'>{dayjs(order.date).format("DD/MM/YYYY")}</Text>
             </View>
           </View>
           <Divider />
           <View className='gap-2'>
-            <OrderProductItem />
-            <OrderProductItem />
-            <OrderProductItem />
+            {order.products.map(({product, quantity, price}) => (
+              <OrderProductItem key={product.id} product={product} quantity={quantity} price={price} />
+            ))}
           </View>
           <Divider />
           <View className='flex-row justify-between items-center'>
             <Text className='text-muted-foreground'>Total</Text>
-            <Text className='text-foreground text-xl font-bold'>R$ 2.097,00</Text>
+            <Text className='text-foreground text-xl font-bold'>{formatCurrency(order.total)}</Text>
           </View>
         </View>
       )}
