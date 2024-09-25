@@ -30,7 +30,7 @@ const Home = () => {
         <HomeScreenBanner />
         <ProductsSection
           title='Teclados'
-          products={products?.filter(product => product.category.toLowerCase() === "teclados")}
+          products={products?.filter(product => product.category.toLowerCase() === "keyboards")}
           isLoading={isLoadingProducts}
         />
       </View>

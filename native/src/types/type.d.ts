@@ -15,6 +15,7 @@ declare type Product = {
 declare type Category = {
   id: string
   slug: string
+  name: string
   image: string
 }
 

@@ -8,9 +8,10 @@ import { Category } from '@/types/type';
 import { ClassNameValue } from 'tailwind-merge';
 import { cn } from '@/lib/utils';
 import { mocks } from '@/lib/mocks';
+import { useCategories } from '@/hooks/use-categories';
 
 export default function Categories() {
-  const {categories} = mocks
+  const { categories } = useCategories()
 
   return (
     <View className='w-full h-full'>
@@ -18,7 +19,7 @@ export default function Categories() {
         <View className='w-full gap-6 p-6 mb-8'>
           <Text variant="header1">Catálogo</Text>
           <View className='w-full flex-row gap-6 flex-wrap justify-center items-center'>
-            {categories.map((category, index) => (
+            {categories?.map((category, index) => (
               <CategoryItem key={index} category={category} />
             ))}
           </View>
@@ -49,13 +50,14 @@ const CategoryItem = ({ category, className }: CategoryItemProps) => {
         className='w-full h-[150px] justify-center items-center rounded-lg'
       >
         <Image
-          source={category.image as ImageSourcePropType}
-          className='w-[80%]'
+          source={{ uri: category.image }}
           resizeMode='contain'
+          className='size-28'
+          
         />
       </LinearGradient>
       <View className='bg-card h-11 rounded-b-lg justify-center items-center'>
-        <Text variant="header2">{category.slug}</Text>
+        <Text variant="header2">{category.name}</Text>
       </View>
     </Pressable>
   )
