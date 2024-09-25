@@ -8,14 +8,16 @@ import { Product } from '@/types/type';
 
 interface Props {
   title: string
-  products: Product[]
+  products?: Product[]
+  isLoading?: boolean
   className?: ClassNameValue
 }
 
-export default function ProductsSection({ title, products, className }: Props) {
+export default function ProductsSection({ title, products = [], isLoading, className }: Props) {
   return (
     <View className={cn('w-full gap-2', className)}>
       <Text variant='header1' className='uppercase px-6'>{title}</Text>
+      {isLoading && <Text>Loading...</Text>}
       <FlatList
         data={products}
         keyExtractor={(product) => product.id}
