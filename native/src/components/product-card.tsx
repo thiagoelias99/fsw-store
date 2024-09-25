@@ -4,7 +4,7 @@ import { router } from "expo-router"
 import Rating from './ui/rating';
 import DiscountBadge from './ui/discount-badge';
 import { Product } from '@/types/type';
-import { calculateDiscountedPrice, formatCurrency } from '@/lib/utils';
+import { formatCurrency } from '@/lib/utils';
 
 interface ProductCardProps {
   product: Product,
@@ -20,7 +20,8 @@ export default function ProductCard({ product, className }: ProductCardProps) {
       <View className='relative w-full h-[170px] bg-card rounded-2xl justify-center items-center'>
         <DiscountBadge value={product.discount} className="absolute top-4 left-4" />
         <Image
-          source={product.images[0] as ImageSourcePropType}
+          source={{ uri: product.images[0]?.url }}
+          alt={product.images[0]?.alt}
           className='size-24 translate-y-4'
           resizeMode='cover'
         />

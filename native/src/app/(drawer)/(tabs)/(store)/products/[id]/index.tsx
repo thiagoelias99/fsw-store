@@ -19,7 +19,7 @@ export default function Product() {
       <ScrollView contentContainerStyle={{ flexGrow: 1, paddingBottom: 36 }}>
         <View className='gap-6'>
           <ProductDetailsImages
-            images={product.images as ImageSourcePropType[]}
+            images={product.images}
           />
           <ProductDetailsDescription className="px-4" product={product} />
           <ProductsSection title={`Mais de ${product.category}`} products={products?.filter(item => item.category === product.category)} />

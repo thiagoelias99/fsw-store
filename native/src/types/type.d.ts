@@ -8,8 +8,14 @@ declare type Product = {
   discount: number
   sellPrice: number
   category: string
-  images: string[]
+  images: ProductImage[]
   rating: number
+}
+
+declare type ProductImage = {
+  id: string
+  url: string
+  alt: string
 }
 
 declare type Category = {

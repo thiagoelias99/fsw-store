@@ -1,9 +1,10 @@
 import React from 'react'
 import { View, Image, FlatList, ImageSourcePropType } from 'react-native'
 import ProductDetailsImagesItem from './product-details-images-item'
+import { ProductImage } from '@/types/type'
 
 interface Props {
-  images: ImageSourcePropType[]
+  images: ProductImage[]
 }
 
 export default function ProductDetailsImages({ images }: Props) {
@@ -13,9 +14,10 @@ export default function ProductDetailsImages({ images }: Props) {
     <View>
       <View className='w-full min-h-[380px] bg-card justify-center items-center'>
         <Image
-          source={selectedImage}
+          source={{ uri: selectedImage?.url }}
+          alt={selectedImage?.alt}
           resizeMode='contain'
-          className='w-full max-w-[270px]'
+          className='size-72'
         />
       </View>
 
@@ -25,8 +27,8 @@ export default function ProductDetailsImages({ images }: Props) {
         contentContainerStyle={{ paddingHorizontal: 16, gap: 16, paddingTop: 28 }}
         renderItem={(item) => (
           <ProductDetailsImagesItem
-            src={item.item}
-            active={selectedImage === item.item}
+            src={{ uri: item.item.url }}
+            active={selectedImage.id === item.item.id}
             onPress={() => setSelectedImage(item.item)}
           />
         )}
