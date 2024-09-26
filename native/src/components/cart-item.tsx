@@ -1,4 +1,4 @@
-import { StyleSheet, Image, View, Text, ImageSourcePropType } from 'react-native'
+import { Image, View, Text } from 'react-native'
 import React from 'react'
 import { colors } from '@/styles/colors'
 import { Button } from './ui/button'
@@ -17,7 +17,7 @@ export default function OrderProduct({orderProduct, className} : OrderProductPro
     <View className={cn('w-full flex-row justify-between items-center', className)}>
       <View className='flex-row gap-4'>
         <Image
-          source={orderProduct.product.images[0] as ImageSourcePropType}
+          source={{ uri: orderProduct.product.images[0].url }}		
           style={{
             width: 80,
             height: 80,
@@ -29,9 +29,9 @@ export default function OrderProduct({orderProduct, className} : OrderProductPro
         <View>
           <Text className='text-base text-foreground'>{orderProduct.product.title}</Text>
           <View className='flex-row justify-start items-baseline gap-2'>
-            <Text className='text-xl text-foreground font-bold'>{formatCurrency(orderProduct.product.sellPrice)}</Text>
+            <Text className='text-xl text-foreground font-bold'>{formatCurrency(orderProduct.product.sellPrice * orderProduct.quantity)}</Text>
             {orderProduct.product.discount > 0 && (
-              <Text className='text-sm text-muted-foreground line-through'>{formatCurrency(orderProduct.product.originalPrice)}</Text>
+              <Text className='text-sm text-muted-foreground line-through'>{formatCurrency(orderProduct.product.originalPrice * orderProduct.quantity)}</Text>
             )}
           </View>
           <View className="flex-row justify-start items-center">

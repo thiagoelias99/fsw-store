@@ -6,9 +6,12 @@ import { colors } from '@/styles/colors'
 import { useNavigation, router } from "expo-router"
 import { DrawerActions } from '@react-navigation/native'
 import CartBadge from './cart-badge'
+import { useCart } from '@/hooks/use-cart'
 
 export default function RootHeader() {
   const navigation = useNavigation()
+  const { data } = useCart()
+
   const toggleDrawer = () => navigation.dispatch(DrawerActions.toggleDrawer())
 
   return (
@@ -29,9 +32,9 @@ export default function RootHeader() {
           className='relative'
         >
           <ShoppingCartIcon color={colors.foreground} />
-          <CartBadge 
-          value={2} 
-          className='absolute translate-x-5 translate-y-4'
+          <CartBadge
+            value={data?.products.length || 0}
+            className='absolute translate-x-5 translate-y-4'
           />
         </Button>
       </View>

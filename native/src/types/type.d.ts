@@ -40,3 +40,16 @@ declare type OrderProduct = {
   quantity: number
   price: number
 }
+
+declare type Cart = {
+  id: string
+  products: CartProduct[]
+  subTotal: number
+  discount: number
+  total: number
+}
+
+declare type CartProduct = {
+  product: Product
+  quantity: number
+}
