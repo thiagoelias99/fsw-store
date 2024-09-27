@@ -1,6 +1,6 @@
 import { api } from '@/lib/axios'
 import { Cart } from '@/types/type'
-import { useQuery, useQueryClient } from '@tanstack/react-query'
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { useEffect, useState } from 'react'
 import uuid from 'react-native-uuid'
 import { nativeStorage } from './use-storage';
@@ -29,6 +29,7 @@ export const useCart = () => {
     setCartId(cartId)
   }
 
+  // Get cart
   const { data, isLoading } = useQuery({
     queryKey: ['cart'],
     enabled: cartId !== null,
@@ -43,5 +44,33 @@ export const useCart = () => {
     },
   })
 
-  return { data, isLoading }
+  // Add product
+  const { mutateAsync: addProduct, isPending: isAddingProduct } = useMutation({
+    mutationKey: ['addProduct'],
+    mutationFn: async (productId: string) => {
+      try {
+        const cart = await api.post<Cart>(`${endPoint}/cart/${cartId}/add-product/${productId}`)
+        await queryClient.setQueryData(['cart'], cart.data)
+      } catch (error) {
+        console.error(error)
+        throw error
+      }
+    },
+  })
+
+  // Remove product
+  const { mutateAsync: removeProduct, isPending: isRemovingProduct } = useMutation({
+    mutationKey: ['removeProduct'],
+    mutationFn: async (productId: string) => {
+      try {
+        const cart = await api.patch<Cart>(`${endPoint}/cart/${cartId}/remove-product/${productId}`)
+        await queryClient.setQueryData(['cart'], cart.data)
+      } catch (error) {
+        console.error(error)
+        throw error
+      }
+    },
+  })
+
+  return { data, isLoading, addProduct, isAddingProduct, removeProduct, isRemovingProduct }
 }

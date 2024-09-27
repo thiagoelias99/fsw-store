@@ -1,15 +1,17 @@
 import { useLocalSearchParams } from 'expo-router'
-import { ImageSourcePropType, ScrollView, View } from 'react-native'
+import { ScrollView, View } from 'react-native'
 import ProductDetailsImages from '@/components/product-details-images'
 import ProductDetailsDescription from '@/components/product-details-description'
 import { Button } from '@/components/ui/button'
 import { Text } from '@/components/ui/text'
 import ProductsSection from '@/components/products-section'
 import { useProducts } from '@/hooks/use-products'
+import { useCart } from '@/hooks/use-cart'
 
 export default function Product() {
   const { id } = useLocalSearchParams<{ id: string }>()
-  const {products} = useProducts()
+  const { products } = useProducts()
+  const { addProduct, isAddingProduct } = useCart()
   const product = products?.find((product) => product.id === id)
 
   if (!product) return <Text>Produto não encontrado</Text>
@@ -25,7 +27,11 @@ export default function Product() {
           <ProductsSection title={`Mais de ${product.category}`} products={products?.filter(item => item.category === product.category)} />
         </View>
       </ScrollView>
-      <Button className="mx-4 absolute top-2 right-0 left-0">
+      <Button
+        className="mx-4 absolute top-2 right-0 left-0"
+        isLoading={isAddingProduct}
+        onPress={() => addProduct(product.id)}
+      >
         <Text>Adicionar ao carrinho</Text>
       </Button>
     </View>

@@ -6,18 +6,21 @@ import { ChevronLeftIcon, ChevronRightIcon, Trash2Icon } from 'lucide-react-nati
 import { OrderProduct as OrderProductType } from '@/types/type'
 import { ClassNameValue } from 'tailwind-merge'
 import { cn, formatCurrency } from '@/lib/utils'
+import { useCart } from '@/hooks/use-cart'
 
 interface OrderProductProps {
-  orderProduct: OrderProductType
+  cartProduct: OrderProductType
   className?: ClassNameValue
 }
 
-export default function OrderProduct({orderProduct, className} : OrderProductProps) {
+export default function CartProduct({ cartProduct, className }: OrderProductProps) {
+  const { removeProduct } = useCart()
+
   return (
     <View className={cn('w-full flex-row justify-between items-center', className)}>
       <View className='flex-row gap-4'>
         <Image
-          source={{ uri: orderProduct.product.images[0].url }}		
+          source={{ uri: cartProduct.product.images[0].url }}
           style={{
             width: 80,
             height: 80,
@@ -27,18 +30,18 @@ export default function OrderProduct({orderProduct, className} : OrderProductPro
           resizeMode='contain'
         />
         <View>
-          <Text className='text-base text-foreground'>{orderProduct.product.title}</Text>
+          <Text className='text-base text-foreground'>{cartProduct.product.title}</Text>
           <View className='flex-row justify-start items-baseline gap-2'>
-            <Text className='text-xl text-foreground font-bold'>{formatCurrency(orderProduct.product.sellPrice * orderProduct.quantity)}</Text>
-            {orderProduct.product.discount > 0 && (
-              <Text className='text-sm text-muted-foreground line-through'>{formatCurrency(orderProduct.product.originalPrice * orderProduct.quantity)}</Text>
+            <Text className='text-xl text-foreground font-bold'>{formatCurrency(cartProduct.product.sellPrice * cartProduct.quantity)}</Text>
+            {cartProduct.product.discount > 0 && (
+              <Text className='text-sm text-muted-foreground line-through'>{formatCurrency(cartProduct.product.originalPrice * cartProduct.quantity)}</Text>
             )}
           </View>
           <View className="flex-row justify-start items-center">
             <Button variant="outline" size="icon">
               <ChevronLeftIcon color={colors.foreground} />
             </Button>
-            <Text className='px-4 text-foreground text-lg'>{orderProduct.quantity}</Text>
+            <Text className='px-4 text-foreground text-lg'>{cartProduct.quantity}</Text>
             <Button variant="outline" size="icon">
               <ChevronRightIcon color={colors.foreground} />
             </Button>
@@ -46,7 +49,7 @@ export default function OrderProduct({orderProduct, className} : OrderProductPro
         </View>
       </View>
 
-      <Button variant="destructive" size="icon">
+      <Button variant="destructive" size="icon" onPress={() => removeProduct(cartProduct.product.id)}>
         <Trash2Icon color={colors.destructive.foreground} size={24} />
       </Button>
     </View>

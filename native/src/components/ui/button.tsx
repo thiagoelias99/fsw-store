@@ -1,7 +1,8 @@
 import { cn } from '@/lib/utils';
-import { Pressable, TouchableOpacity, View } from 'react-native';
+import { ActivityIndicator, Pressable, TouchableOpacity, View } from 'react-native';
 import { cva, type VariantProps } from 'class-variance-authority'
 import { Loader2Icon } from 'lucide-react-native';
+import { colors } from '@/styles/colors';
 
 const buttonVariants = cva(
   'items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
@@ -46,10 +47,10 @@ function Button({ className, variant, size, asChild = false, isLoading, disabled
       {...props}
     >
       <View
-        className='flex justify-center items-center gap-2'
+        className='flex-row justify-center items-center gap-2'
       >
         {children}
-        {isLoading && <Loader2Icon className='animate-spin' />}
+        {isLoading && <ActivityIndicator className='text-primary-foreground' />}
       </View>
     </Pressable>
   );
