@@ -60,35 +60,39 @@ A aplicação foi proposta pela escola [FullstackClub](https://lp.fullstackclub.
 
 #### Home Activity
 - [X] - Interface visual
-- [ ] - Integração de dados
+- [X] - Integração de dados
 - [ ] = Busca
 
 #### Product Details Activity
 - [X] - Interface visual
-- [ ] - Integração de dados
+- [X] - Integração de dados
 - [ ] - Funcionalidades
 
 #### Categories Activity
 - [X] - Interface visual
-- [ ] - Integração de dados
+- [X] - Integração de dados
 
 #### Categories/Products Activity
 - [X] - Interface visual
-- [ ] - Integração de dados
+- [X] - Integração de dados
 
 #### Main Menu
 - [X] - Interface visual
-- [ ] - Integração de dados
+- [X] - Integração de dados
 
 #### Carrinho
 - [X] - Interface visual
-- [ ] - Integração de dados
+- [X] - Integração de dados
 - [ ] - Funcionalidades
+  - [X] - Adiconar produto
+  - [X] - Remover produtor
+  - [ ] - Alterar quantidade
+  - [ ] - Finalizar compra
 
 #### Pedidos
 - [X] - Interface visual
 - [ ] - Integração de dados
 
 #### Login
-- [ ] - Interface visual
+- [X] - Interface visual
 - [ ] - Integração de dados

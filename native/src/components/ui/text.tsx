@@ -1,7 +1,6 @@
 import { cn } from '@/lib/utils';
-import { TouchableOpacity, View, Text as RNText } from 'react-native';
+import { TouchableOpacity, Text as RNText } from 'react-native';
 import { cva, type VariantProps } from 'class-variance-authority'
-import { Loader2Icon } from 'lucide-react-native';
 
 const textVariants = cva(
   'text-foreground',

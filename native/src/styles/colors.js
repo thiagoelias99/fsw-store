@@ -13,7 +13,7 @@ export const colors = {
     foreground: 'hsl(210 20% 98%)'
   },
   destructive: {
-    DEFAULT: 'hsl(0 62.8% 30.6%)',
+    DEFAULT: 'hsl(2 53% 48%)',
     foreground: 'hsl(210 20% 98%)'
   },
   muted: {
